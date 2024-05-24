@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Content</title>
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+</head>
+<body>
+	<h1>Dati del documento</h1>
+	<table>
+		<tbody>
+			<tr>
+				<td>Nome:</td>
+				<td th:text="${document.name}"></td>
+			</tr>
+			<tr>
+				<td>Tipo:</td>
+				<td th:text="${document.type}"></td>
+			</tr>
+			<tr>
+				<td>Sommario:</td>
+				<td th:text="${document.summary}"></td>
+			</tr>
+			<tr>
+				<td>Data creazione:</td>
+				<td th:text="${#dates.format(document.date, 'dd/MM/yyyy')}"></td>
+			</tr>
+			<tr>
+				<td>Proprietario:</td>
+				<td th:text="${document.owner}"></td>
+			</tr>
+			<tr>
+				<td>Percorso:</td>
+				<td th:text="${document.path}"></td>
+			</tr>
+			<tr>
+				<td>ID:</td>
+				<td th:text="${document.DocumentId}"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<br><button class="btn" th:onclick="'window.location.href=\'goToContentPage?folderId=' + ${folderId} + '\''">Pagina precedente</button>&nbsp;
+	<br><br><button class="btn" onclick="window.location.href='logout'">Logout</button>
+</body>
+</html>

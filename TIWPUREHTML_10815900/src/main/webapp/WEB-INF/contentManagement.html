@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Content Management</title>
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+</head>
+<body>
+	<h1>Gestione Contenuti</h1>
+	<form action="createFolder" method="post">
+		<div th:if="${folders != null and folders.size() > 0}"></div>
+		<label for="newFolder">Crea nuova cartella di primo livello:</label> <input
+			type="text" id="newFolderName" name="name" placeholder="Nome">
+		<input class="btn" type="submit" value="Crea"> <input type="hidden"
+			name="folderId" value="-1"> <input type="hidden" name="owner"
+			th:value="${session.user.username}">
+	</form>
+	<hr>
+	<form action="createFolder" method="post">
+		<div th:if="${folders != null and folders.size() > 0}">
+			<label for="subFolder">Crea sottocartella:</label> <input type="text"
+				id="subFolderName" name="name" placeholder="Nome"> <select
+				id="folderId" name="folderId">
+				<option value="">-- Select Folder --</option>
+				<th:block th:each="folder : ${folders}">
+					<option th:value="${folder.FolderId}" th:text="${folder.name}"></option>
+				</th:block>
+			</select> <input type="hidden" name="owner"
+				th:value="${session.user.username}"> <input class="btn" type="submit"
+				value="Crea">
+		</div>
+
+	</form>
+	<hr>
+	<form action="createDocument" method="post">
+		<div th:if="${folders != null and folders.size() > 0}">
+			<label for="subFolder">Crea documento:</label> <input type="text"
+				id="subFolderName" name="name" placeholder="Nome"> <input
+				type="text" id="type" name="type" placeholder="Tipo"> <input
+				type="text" id="summary" name="summary" placeholder="Sommario">
+			<select id="folderId" name="folderId">
+				<option value="">-- Select Folder --</option>
+				<th:block th:each="folder : ${folders}">
+					<option th:value="${folder.FolderId}" th:text="${folder.name}"></option>
+				</th:block>
+			</select> <input type="hidden" name="owner"
+				th:value="${session.user.username}"> <input class="btn" type="submit"
+				value="Crea">
+		</div>
+		<br></br>
+	</form>
+	<button class="btn" onclick="window.location.href='goToHomePage'">Pagina precedente</button>&nbsp;
+	<br><br><button class="btn" onclick="window.location.href='logout'">Logout</button>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Content</title>
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+</head>
+<body>
+	<h1 th:text="'Contenuto della cartella ' + ${folder.getName()}"></h1>
+	<div th:if="${folders.size() > 0}">
+		<table>
+			<thead>
+				<tr>
+					<th>Le tue cartelle:</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="f : ${folders}">
+					<td><a th:text="${f.name}"></a></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div th:if="${documents.size() > 0}">
+		<table>
+			<thead>
+				<tr>
+					<th>I tuoi documenti:</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="d : ${documents}">
+					<td th:text="${d.name}"></td>
+					<td> 
+						<button class="btn" th:onclick="'window.location.href=\'goToDocumentPage?documentId=' + ${d.DocumentId} + '&folderId=' + ${folder.FolderId} + '\''">Accedi</button>&nbsp;
+						<button class="btn" th:onclick="'window.location.href=\'selectFolder?documentId=' + ${d.DocumentId} + '&folderId=' + ${folder.FolderId} + '\''">Sposta</button>	
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div th:if="${folders.size() == 0 && documents.size() == 0}">No
+		folders and documents were created.</div>
+	<br></br>
+	<button class="btn" onclick="window.location.href='goToHomePage'">Pagina precedente</button>&nbsp;
+	<br><br><button class="btn" onclick="window.location.href='logout'">Logout</button>
+</body>
+</html>

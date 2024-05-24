@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+</head>
+<body>
+	<div th:if="${folders.size() > 0 && move == 0}">
+		<h1>Benvenuto nella tua home</h1>
+		<ul>
+			<li th:each="f : ${folders}"
+				th:class="${'indent-' + f.path.split('/').length}"><span
+				style="list-style-type: none;">&nbsp;</span> <a
+				th:href="@{'goToContentPage?folderId=' + ${f.FolderId}}"
+				th:text="${f.name}"></a><br></li>
+		</ul>
+		<button class="btn" onclick="window.location.href='goToContentManagementPage'">Gestione Contenuti</button>
+	</div>
+	<div th:if="${folders.size() > 0  && move == 1 }">
+		<p
+			th:text="${'Stai spostando il documento ' + document.getName() + ' dalla cartella ' + actualFolder.getName() + '. Scegli la
+			cartella di destinazione'}"></p>
+		<ul>
+			<li th:each="f : ${folders}"
+				th:class="${'indent-' + f.path.split('/').length}"><span
+				style="list-style-type: none;">&nbsp;</span> <a
+				th:if="${!f.selected}"
+				th:href="@{'moveDocument?documentId=' + ${document.documentId} + '&path=' + ${f.path} + '/' + ${f.name} + '&folderId=' + ${f.FolderId}}"
+				th:text="${f.name}"
+				th:class="${f.selected ? 'selected-folder' : ''}"></a> <span
+				th:if="${f.selected}" th:text="${f.name}" class="selected-folder"></span>
+			</li>
+		</ul>
+		<a href="goToHomePage">Annulla</a>
+	</div>
+	<div th:if="${folders.size() == 0}">No folders were created.<br><br>
+	<button class="btn" onclick="window.location.href='goToContentManagementPage'">Gestione Contenuti</button></div>
+	<br><button class="btn" onclick="window.location.href='logout'">Logout</button>
+</body>
+</html>
