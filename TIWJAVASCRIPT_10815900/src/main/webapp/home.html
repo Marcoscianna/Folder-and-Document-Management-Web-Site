@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<link rel="stylesheet" href="css/mystyle.css" />
+<script src="utils.js" charset="utf-8" defer></script>
+<script src="home.js" charset="utf-8" defer></script>
+</head>
+<body>
+
+	<div class="folderTree" id="id_home">
+		<h1 id= "benvenuto">Benvenuto nella tua Home</h1>
+		<div id="id_alert"></div>
+		<table id="id_listcontainer" class="foldersTable">
+			<tbody id="id_listcontainerbody"></tbody>
+		</table>
+		<div id="id_bin">
+			<button class="bin" ondragover="allowDrop(event)"
+				ondrop="dropBin(event)" type="button">Cestino |_|</button>
+		</div>
+	</div>
+
+	<div class="subfolderContent">
+		<div id="id_alertsub"></div>
+		<table id="id_content" class="contentTable">
+			<tbody id="id_contentbody"></tbody>
+		</table>
+	</div>
+
+	<div class="document">
+		<table id="id_document" class="documentTable">
+			<tbody id="id_documentbody"></tbody>
+		</table>
+	</div>
+
+
+	<br>
+	<div>
+		<a href="Logout" draggable="false"><button class="btn">Logout</button></a>
+	</div>
+	<br>
+</body>
+</html>

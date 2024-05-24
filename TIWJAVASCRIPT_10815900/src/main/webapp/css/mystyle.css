@@ -1,0 +1,156 @@
+.indent-1 {
+	padding-left: 10px; 
+	list-style: disc; 
+}
+
+.indent-2 {
+	padding-left: 30px; 
+	list-style: circle;
+}
+
+.indent-3 {
+	padding-left: 50px; 
+	list-style: square; 
+}
+
+.indent-4 {
+	padding-left: 90px;
+	list-style: none;
+}
+
+.indent-5 {
+	padding-left: 110px;
+	list-style: none;
+}
+
+.indent-6 {
+	padding-left: 130px;
+	list-style: none;
+}
+
+.indent-7 {
+	padding-left: 150px;
+	list-style: none;
+}
+
+.selected-folder {
+	background-color: yellow;
+	font-weight: bold; /* Rende il testo in grassetto per evidenziare */
+}
+
+/* Stile per la finestra modale */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80%; 
+	max-width: 400px;
+	padding: 20px;
+	background-color: #fefefe;
+	border: 1px solid #888;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Stile per lo sfondo opaco */
+.overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Opacità dello sfondo */
+	z-index: 999;
+}
+
+.modal-content {
+	background-color: #fefefe;
+	padding: 20px;
+	border: 1px solid #888;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	max-width: 100%; 
+	text-align: center; 
+}
+
+.modal-content p {
+	margin-bottom: 20px;
+}
+
+.modal-content button {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+.modal-content button.cancel {
+	background-color: #f44336;
+}
+
+/* Impostazioni generali */
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f2f2f2;
+	color: #333;
+	margin: 0;
+	padding: 0 20px; 
+}
+/* Bottoni */
+.btn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 8px 18px; 
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	margin-left: 5px; 
+}
+
+.login {
+	background-color: #388E3C;
+	color: white;
+	padding: 8px 18px; 
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	margin-left: 5px; 
+}
+
+.register {
+	background-color: #388E3C;
+	color: white;
+	padding: 8px 18px; 
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	margin-left: 5px; 
+}
+
+.bin {
+	background-color: #808080; /* Grigio */
+	color: white;
+	padding: 8px 18px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	margin-left: 5px;
+}
+
+.right-align {
+	position: absolute;
+	top: 2%; 
+	left: 50%;
+	transform: translateX(-50%);
+}
