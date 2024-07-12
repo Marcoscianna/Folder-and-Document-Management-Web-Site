@@ -1,1 +1,2 @@
 # progetto TIW 2024
+The project for the course "Tecnologie Informatiche per il Web" involves creating a web application based on a given theme, which in this case is a site for saving folders and documents. For the server part, I have to use Java and MySQL for the database. The client part has two versions: one using only HTML and Thymeleaf, and the other using JavaScript. The second version also includes drag-and-drop functionality.
